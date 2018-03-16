@@ -45,19 +45,19 @@ jQuery.noConflict();
                 buttons: {
                     signInOutlook: {
                         id: 'kintoneCustomizeBtnSignInOutlook',
-                        text: 'signInOutlook'
+                        text: 'Sign in Outlook'
                     },
                     signOut: {
                         id: 'kintoneCustomizeBtnSignOut',
-                        text: 'signOut'
+                        text: 'Sign out'
                     },
                     getMail: {
                         id: 'kintoneCustomizeBtnGetMail',
-                        text: 'getMail'
+                        text: 'Receive Mail'
                     },
                     sendMail: {
                         id: 'kintoneCustomizeBtnSendMail',
-                        text: 'sendMail'
+                        text: 'Send Mail'
                     }
                 },
                 label: {
@@ -89,9 +89,9 @@ jQuery.noConflict();
             this.data.ui.kintoneCustomizeOutlookHeaderNotSigned = document.createElement('div');
             this.data.ui.kintoneCustomizeOutlookUserInfo = document.createElement('div');
 
-            this.data.ui.btnSignIn = KC.ui.createButton(this.setting.ui.buttons.signInOutlook);
-            this.data.ui.btnSignOut = KC.ui.createButton(this.setting.ui.buttons.signOut);
-            this.data.ui.btnGetmail = KC.ui.createButton(this.setting.ui.buttons.getMail);
+            this.data.ui.btnSignIn = this.createButton(this.setting.ui.buttons.signInOutlook);
+            this.data.ui.btnSignOut = this.createButton(this.setting.ui.buttons.signOut);
+            this.data.ui.btnGetmail = this.createButton(this.setting.ui.buttons.getMail);
             this.data.ui.kintoneCustomizeOutlookUserInfo = document.createElement('div');
 
             this.data.ui.kintoneCustomizeOutlookHeaderSigned.style.display = 'none';
@@ -118,6 +118,19 @@ jQuery.noConflict();
         uicreateForDetail: function() {
             var kintoneDetailHeaderSpace = kintone.app.record.getHeaderMenuSpaceElement();
             kintoneDetailHeaderSpace.appendChild(KC.ui.createButton(this.setting.ui.buttons.sendMail));
+        },
+
+        createButton: function(setting, lang) {
+            if (typeof setting === 'undefined' || !setting) {
+                return null;
+            }
+            var button = document.createElement('button');
+            button.id = setting.id || '';
+            button.className = setting.class || '';
+            var text = lang ? lang[setting.text] || setting.text || '' : setting.text || '';
+            button.innerHTML = text;
+            button.style.cssText = setting.style || '';
+            return button;
         }
     };
 
