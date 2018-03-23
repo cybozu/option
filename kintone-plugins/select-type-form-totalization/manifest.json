@@ -1,0 +1,45 @@
+{
+    "manifest_version": 1,
+    "version": 1,
+    "type": "APP",
+    "name": {
+        "ja": "選択型フィールド集計プラグイン",
+        "en": "Select-Type-Form Totalization Plugin",
+        "zh": "Select-Type-Form Totalization Plugin"
+    },
+    "description": {
+        "ja": "選択項目の値の数の集計を行うプラグインです。",
+        "en": "The plugin count number by select-type-field values.",
+        "zh": "The plugin count number by select-type-field values."
+    },
+    "icon": "icon/icon.png",
+    "homepage_url": { 
+        "ja": "https://developer.cybozu.io/hc/ja",
+        "en": "https://developer.kintone.io/hc/en-us",
+        "zh": "https://cybozudev.kf5.com/hc/"
+    },
+    "desktop": {
+        "js": [
+            "https://js.cybozu.com/jquery/3.1.1/jquery.min.js",
+            "js/totalization.js"
+        ]
+    },
+    "mobile": {
+        "js": [
+            "https://js.cybozu.com/jquery/3.1.1/jquery.min.js",
+            "js/totalization.js"
+        ]
+    },
+    "config": {
+        "html": "html/config.html",
+        "js": [
+            "https://js.cybozu.com/jquery/3.1.1/jquery.min.js",
+            "js/config.js"
+        ],
+        "css": [
+            "css/51-modern-default.css",
+            "css/config.css"
+        ],
+        "required_params": ["data"]
+    }
+}
