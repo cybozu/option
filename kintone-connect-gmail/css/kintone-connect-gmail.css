@@ -1,0 +1,154 @@
+/*
+Cybozu 2017
+Licence: MIT
+*/
+@-webkit-keyframes kintone-button-material {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(30, 30);
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes kintone-button-material {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(30, 30);
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes kintone-button-material {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(30, 30);
+    opacity: 1;
+  }
+}
+
+@keyframes kintone-button-material {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(30, 30);
+    opacity: 1;
+  }
+}
+
+.kintoneCustomizeGmailUIHeader {
+  display: block;
+  width: 100%;
+  padding: 1em;
+}
+
+.kintoneCustomizeGmailUIHeader > div > * {
+  display: inline-block;
+}
+
+.kintoneCustomizeGmailUIHeader button,
+.kintoneCustomizeGmailUIButton {
+  border: 1px solid #e3e7e8;
+  padding: 10px 20px;
+  color: #3498db;
+  font-weight: bold;
+  background: white;
+  margin-left: 1em;
+  position: relative;
+  overflow: hidden;
+}
+
+.kintoneCustomizeGmailUIHeader button:hover,
+.kintoneCustomizeGmailUIButton:hover {
+  background: whitesmoke;
+}
+
+.kintoneCustomizeGmailUIHeader button:after,
+.kintoneCustomizeGmailUIButton:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(101, 101, 101, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.kintoneCustomizeGmailUIHeader button:focus:not(:active):after,
+.kintoneCustomizeGmailUIButton:focus:not(:active):after {
+  animation: kintone-button-material .3s ease-in;
+}
+
+.kintoneCustomizeGmailUIBody {
+  display: block;
+  width: 100%;
+}
+
+div#kintoneCustomizeMessage {
+  position: fixed;
+  top: 20px;
+  z-index: 100;
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  font-family: HelveticaNeueW02-65Medi, Arial, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+}
+
+div#kintoneCustomizeMessage.hidden {
+  display: none;
+}
+
+div#kintoneCustomizeMessage > div {
+  background-color: #e74c3c;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-shadow: 1px -1px 0 rgba(0, 0, 0, 0.5);
+}
+
+div#kintoneCustomizeMessage > div header {
+  position: relative;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+div#kintoneCustomizeMessage > div header span.close {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjdDRDJENzZEMDA2MDExRTRBQkE4Q0IwNUYxMEQ4OTA4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjdDRDJENzZFMDA2MDExRTRBQkE4Q0IwNUYxMEQ4OTA4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6N0NEMkQ3NkIwMDYwMTFFNEFCQThDQjA1RjEwRDg5MDgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6N0NEMkQ3NkMwMDYwMTFFNEFCQThDQjA1RjEwRDg5MDgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4HenQWAAACe0lEQVR42uyYzyuEQRjH5533xSoOEm/IyUWpVW6KcsBplZPDZm/+AuUkDsrJv8BpJblywkFRbsqe3YRekgNlse+85ru15cfanZl33lcv89S2W1vzfT7zPDPPPI8VBAFJslGScDMABsAAGIDfNUfnYjdTo+4bY4MlFqT9IHAZ//Aq4+I/ixCPWpZn849DrUIDpeddu8deWE1LRyG7zoy4RZ/lXhmb4KtNCgkTst9I6UHKpvnuvRPvVwCw40Xfn3zx2ayo49VAmmy6mbLtfZWIKANg159K/hpPlZyO9OOplW9x7AXZaCgBXMH5t9IaIySn+UbJtzQ4Cz0SEFRp5yNwHoY1sTY0IgFAziNtonD+EwTXgJZ2ABxYXTlfy6ABLa0ACCtum7gKFLREUomK7z7LqV6VKgYtaGoBQD6iSMX9TIBmvbMgBIDngczu2+2d2qIA7dAAeNuIijYPDZO+je3y91dry86RzvklKYh62lTwVhC+l5/PTsndzhbpXV79BAHnO2ay5PHoUPZGckO/RvkiaRnRh6318jcgLlcWSap/oOw8fgNQEiAd23P6JwiYivOmIwtjlZzHzlc7E7EC8KduQdV5pA3SSRWinrYjuIhXEnx2owa0Z6a/5XzlTLSOjUudBWiHBkAP+8IEb437W3KRzdQ82FJNO60dAaEUQgOO1i/uAwpNaIcGQK+KBjxuAGjW65OFbyFMD+KMArSgqe0aRbON6UFcANASafCl6gBGH5geRO08NKClvZAhHzH6wPQgwspaHq+IzoikKzHCitFHFBCVsYrMbOh/DrY+tpqJHS1+jUYih7vVIpLI8fqf7AcMgAEwAAbgfwC8CzAAtn92yisIq3QAAAAASUVORK5CYII=");
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+
+div#kintoneCustomizeMessage > div ul {
+  margin: 0;
+}
+
+div#kintoneCustomizeMessage.kintoneCustomizeMessageSuccess > div {
+  background-color: #91c36c;
+}
+
+div#kintoneCustomizeMessage.kintoneCustomizeMessageSuccess > div span.close {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkZBMkE3N0Y0MDAyRTExRTRBQkE4Q0IwNUYxMEQ4OTA4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjdDRDJENzZBMDA2MDExRTRBQkE4Q0IwNUYxMEQ4OTA4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RkEyQTc3RjIwMDJFMTFFNEFCQThDQjA1RjEwRDg5MDgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RkEyQTc3RjMwMDJFMTFFNEFCQThDQjA1RjEwRDg5MDgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5gemumAAACnUlEQVR42uyYu4sTURTG7z0zs0sKxUoUk0JYbARRUONus51tqtuJa+EqYmX8O4yl+AAf2E2Vf2KT1YUFwcbGYiOCldgsZmbuOF8ekDWaPXfmzmTDzoEwSZH7nd/ccx/nk3Eci0UOEgseJUAJUAKUAPMN1+Zgr3buVKNI16JQ39A6rsU6ro6PGSmTD8kekdxzXOo6Du3dvfqml1VT2jjIXn7cqAb9SIWBXhUiVkxp3/Wo4y05/ua1t725ATzbuqWCvlb8xKdBvCXyH6y99wsFwFv/vR82tdbV5KfKOIk+EfWWK27LdDZSAbz4gOSDVvJfZXMNSSn95YrXvHedD0Hp3rz95BEYE2NDIxcA7DIomzySPwgRNqFlHSDoh6tJzT/Ke2+HBrSsAgy3Sq1EQQEtTikRf8Aow1aZqpjUUNMSwPCQKjY4miyA59u3ccKyhSveKVuzMNLOCIC7DfewOnvyotiotwbPv+PKuYZYX9k0IVAj7WwAuJhxFb//+iy2v7ZF49LjAxBIvn6+Ib782DLckWZrs26juFWaiO5+aw+egGh/eiLOnFgZJI/vADQqokO0eQAprkuTEIg0yXO0j0dHhmbENMY1jzf/rzXBv+DZAEg6qbTJo2xQTmkhDtNmrQG0gTrinwGXazenan68Ji6cXjNaC9DODIAeNgwin3MW7Ac/xevuw5kL26TRgXbmErpff9dJJnMOS1SOtC3sQmjAC7dMGJpsALgHaMALfPv+UNMSAJptuAdFpQ8tToNPZoO6HSJ6mvvhlGhAy3pLCScN1gfcg9wKZ+BMuC2ua2d8lcC0wvrIA2Jsq5h4Q8fT2JqMhbUWpx2LBTV3JwNmVBjqmo5m2+vkUNd1j5C9fuT7gRKgBCgBSoAS4H/xR4ABANcDdxiEmbZZAAAAAElFTkSuQmCC");
+}
+
+#kintoneCustomizeBtnSignInGmail {
+  background-color: #d9463d;
+  color: white;
+}
