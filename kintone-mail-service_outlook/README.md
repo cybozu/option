@@ -17,7 +17,6 @@ From kintone you can access the data in the Microsoft cloud using the Microsoft 
 >* Register the application name with an arbitrary name.
 >* We will copy the automatically assigned application ID for later use.
 >* Add "Web" by adding platform. Please specify the target application of kintone as the redirect destination.
->* Add "Mail.Read" "Mail.Send" with "delegated access permission"
 
 2. Download msal.js.
    https://github.com/AzureAD/microsoft-authentication-library-for-js
