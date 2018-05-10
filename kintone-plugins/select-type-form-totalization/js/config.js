@@ -15,9 +15,9 @@ jQuery.noConflict();
                 {
                     title: 'Calculation method',
                     description: 'Select calculation method:<br>'
-                                + 'AVERAGE: Average value<br>'
                                 + 'COUNT: Number of values<br>'
                                 + 'SUM: Sum of values<br>'
+                                + 'AVERAGE: Average value'
                 },
                 {
                     title: 'Calculation word',
@@ -56,9 +56,9 @@ jQuery.noConflict();
                 {
                     title: '集計方法',
                     description: '集計方法を選択してください。<br>'
-                                + 'AVERAGE: 値の平均'
                                 + 'COUNT: 値の数<br>'
                                 + 'SUM: 値の和 <br>'
+                                + 'AVERAGE: 値の平均'
                 },
                 {
                     title: '集計ワード',
@@ -407,6 +407,7 @@ jQuery.noConflict();
         },
         MultipleSelect: function(settings) {
             this.settings = {
+                doSortListItem: true,
                 listItem: [],
                 selectedItem: []
             };
@@ -478,7 +479,10 @@ jQuery.noConflict();
             };
             this.constructor.prototype.renderItemList = function() {
                 var self = this;
-                this.sortListItem();
+                if (self.settings.doSortListItem) {
+                    self.sortListItem();
+                }
+
                 $.each(self.settings.listItem, function(index, item) {
                     var $itemEl = $(self.template.item);
 
@@ -543,6 +547,7 @@ jQuery.noConflict();
         },
         Dropdown: function(settings) {
             this.settings = {
+                doSortListItem: true,
                 listItem: [],
                 selectedItem: {
                     value: null,
@@ -618,7 +623,11 @@ jQuery.noConflict();
                 if (!this.settings) {
                     return;
                 }
-                this.sortListItem();
+
+                if (self.settings.doSortListItem) {
+                    self.sortListItem();
+                }
+
                 $.each(this.settings.listItem, function(index, item) {
                     var $item = $(self.template.item);
                     $item.text(item.name);
@@ -820,12 +829,13 @@ jQuery.noConflict();
                 selectedItem: []
             },
             methodField: {
+                doSortListItem: false,
                 listItem: [
                     { name: 'COUNT', value: 'count' },
-                    { name: 'AVERAGE', value: 'average' },
-                    { name: 'SUM', value: 'sum' }
+                    { name: 'SUM', value: 'sum' },
+                    { name: 'AVERAGE', value: 'average' }
                 ],
-                defaultSelectedItem: { value: 'average', name: 'AVERAGE' }
+                defaultSelectedItem: { value: 'count', name: 'COUNT' }
             },
             numberField: {
                 listItem: [{value: null, name: '-----'}]

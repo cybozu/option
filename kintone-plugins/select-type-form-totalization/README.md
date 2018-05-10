@@ -12,9 +12,9 @@ Selection fields:
 ```
 ```
 Calculations:
+* Count the values specified based on the selected values of the selected fields.
 * Sum the selected values of the selection fields.
 * Calculate the average of the selected values of the selection fields.
-* Count the values specified based on the selected values of the selected fields.
 ```
 * Support Japanese and English (In case the user's language is Chinese, this plugin will be displayed in English).
 
