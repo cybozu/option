@@ -1,5 +1,6 @@
 jQuery.noConflict();
 (function($, PLUGIN_ID) {
+    'use strict';
 
     var avgDecimalPlaces = 2;
     var conf = kintone.plugin.app.getConfig(PLUGIN_ID);

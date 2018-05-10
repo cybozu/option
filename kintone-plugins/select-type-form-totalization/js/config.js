@@ -1,6 +1,8 @@
 jQuery.noConflict();
 
 (function($, PLUGIN_ID) {
+    'use strict';
+
     var Msg = {
         en: {
             TableHeader: [
