@@ -85,24 +85,51 @@ jQuery.noConflict();
         var sum = 0;
         var countAvg = 0;
         var count = 0;
-        $.each(targetFields, function(i, field) {
-            if (record[field]) {
+
+        $.each(record, function(fieldCode, recordField) {
+            if (recordField.type === 'SUBTABLE') {
+                var subRecords = recordField.value;
+                $.each(subRecords, function(i, subRecord) {
+                    var subRecordFields = subRecord.value;
+                    $.each(subRecordFields, function(subRecordFieldCode, subRecordField) {
+                        if (targetFields.indexOf(subRecordFieldCode) !== -1) {
+                            switch (method) {
+                                case 'sum' :
+                                    sum = formatSum(sum, calcSum(subRecordFields, subRecordFieldCode));
+                                    break;
+                                case 'average' :
+                                    var avg = calcAverage(subRecordFields, subRecordFieldCode);
+                                    sum = sum + avg.sum;
+                                    countAvg = countAvg + avg.countAvg;
+                                    break;
+                                case 'count' :
+                                    count = count + calcCount(subRecordFields, subRecordFieldCode, word);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    });
+                });
+            } else if (targetFields.indexOf(fieldCode) !== -1) {
                 switch (method) {
                     case 'sum' :
-                        sum = formatSum(sum, calcSum(record, field));
+                        sum = formatSum(sum, calcSum(record, fieldCode));
                         break;
                     case 'average' :
-                        var avg = calcAverage(record, field);
+                        var avg = calcAverage(record, fieldCode);
                         sum = sum + avg.sum;
                         countAvg = countAvg + avg.countAvg;
                         break;
                     case 'count' :
-                        count = count + calcCount(record, field, word);
+                        count = count + calcCount(record, fieldCode, word);
                         break;
-                    default: break;
+                    default:
+                        break;
                 }
             }
         });
+
         var result = 0;
         if (count === 0) {
             result = countAvg === 0 ? sum : roundNumber(parseFloat(sum / countAvg));
