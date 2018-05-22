@@ -1,6 +1,8 @@
 jQuery.noConflict();
 
 (function($, PLUGIN_ID) {
+    'use strict';
+
     var Msg = {
         en: {
             TableHeader: [
@@ -13,9 +15,9 @@ jQuery.noConflict();
                 {
                     title: 'Calculation method',
                     description: 'Select calculation method:<br>'
-                                + 'AVERAGE: Average value<br>'
                                 + 'COUNT: Number of values<br>'
                                 + 'SUM: Sum of values<br>'
+                                + 'AVERAGE: Average value'
                 },
                 {
                     title: 'Calculation word',
@@ -54,9 +56,9 @@ jQuery.noConflict();
                 {
                     title: '集計方法',
                     description: '集計方法を選択してください。<br>'
-                                + 'AVERAGE: 値の平均'
                                 + 'COUNT: 値の数<br>'
                                 + 'SUM: 値の和 <br>'
+                                + 'AVERAGE: 値の平均'
                 },
                 {
                     title: '集計ワード',
@@ -85,47 +87,7 @@ jQuery.noConflict();
                 selectedItem: '選択中 %%number%% 件'
             }
         },
-        zh: {
-            TableHeader: [
-                {
-                    title: 'Calculation target field',
-                    description: 'Select items to calculate.<br>'
-                    + 'You can select drop-down items, radio button items, check box items'
-                    + ' or multi-choice items.'
-                },
-                {
-                    title: 'Calculation method',
-                    description: 'Select calculation method:<br>'
-                                + 'AVERAGE: Average value<br>'
-                                + 'COUNT: Number of values<br>'
-                                + 'SUM: Sum of values<br>'
-                },
-                {
-                    title: 'Calculation word',
-                    description: 'Enter the string to calculate.<br>'
-                            + '(Only when you set the calculation method to COUNT)'
-                },
-                {
-                    title: 'Calculation result field',
-                    description: 'Show the calculated value. <br>'
-                                + 'Select a number item.'
-                }
-            ],
-            error: {
-                failedToGetFormFieldsApi: 'Failed to get fields from the Form Setting. Please reload.',
-                maximumRow: 'The maximum rows of a table is 20.',
-                required: 'Required.',
-                overLappedField: 'The field is overlapped.',
-                errorOccur: 'Error'
-            },
-            button: {
-                saveBtn: 'Save',
-                cancelBtn: 'Cancel'
-            },
-            multipleSelect: {
-                selectedItem: '%%number%% items selected'
-            }
-        }
+        zh: {}
     };
 
     function getLanguage(language) {
@@ -134,8 +96,8 @@ jQuery.noConflict();
                 return 'ja';
             case 'en':
                 return 'en';
-            case 'zh':
-                return 'zh';
+            // case 'zh':
+            //     return 'zh';
             default:
                 return 'en';
         }
@@ -405,6 +367,7 @@ jQuery.noConflict();
         },
         MultipleSelect: function(settings) {
             this.settings = {
+                doSortListItem: true,
                 listItem: [],
                 selectedItem: []
             };
@@ -476,7 +439,10 @@ jQuery.noConflict();
             };
             this.constructor.prototype.renderItemList = function() {
                 var self = this;
-                this.sortListItem();
+                if (self.settings.doSortListItem) {
+                    self.sortListItem();
+                }
+
                 $.each(self.settings.listItem, function(index, item) {
                     var $itemEl = $(self.template.item);
 
@@ -541,6 +507,7 @@ jQuery.noConflict();
         },
         Dropdown: function(settings) {
             this.settings = {
+                doSortListItem: true,
                 listItem: [],
                 selectedItem: {
                     value: null,
@@ -616,7 +583,11 @@ jQuery.noConflict();
                 if (!this.settings) {
                     return;
                 }
-                this.sortListItem();
+
+                if (self.settings.doSortListItem) {
+                    self.sortListItem();
+                }
+
                 $.each(this.settings.listItem, function(index, item) {
                     var $item = $(self.template.item);
                     $item.text(item.name);
@@ -818,12 +789,13 @@ jQuery.noConflict();
                 selectedItem: []
             },
             methodField: {
+                doSortListItem: false,
                 listItem: [
                     { name: 'COUNT', value: 'count' },
-                    { name: 'AVERAGE', value: 'average' },
-                    { name: 'SUM', value: 'sum' }
+                    { name: 'SUM', value: 'sum' },
+                    { name: 'AVERAGE', value: 'average' }
                 ],
-                defaultSelectedItem: { value: 'average', name: 'AVERAGE' }
+                defaultSelectedItem: { value: 'count', name: 'COUNT' }
             },
             numberField: {
                 listItem: [{value: null, name: '-----'}]
