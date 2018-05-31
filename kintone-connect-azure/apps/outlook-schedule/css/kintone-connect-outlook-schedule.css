@@ -1,0 +1,66 @@
+.kintoneCustomizeOutlookUIHeader {
+  display: block;
+  width: 100%;
+  padding: 0 0 1em 1em;
+
+}
+
+.kintoneCustomizeOutlookUIHeader div>* {
+    display: inline-block;
+  }
+
+.kintoneCustomizeOutlookUIHeader button,
+.kintoneCustomizeOutlookUIButton {
+  border: 1px solid #e3e7e8;
+  padding: 10px 20px;
+  color: #3498db;
+  font-weight: bold;
+  background: white;
+  margin-left: 1em;
+  position: relative;
+  overflow: hidden;
+}
+
+.kintoneCustomizeOutlookUIButton:hover {
+    background: whitesmoke;
+}
+
+.kintoneCustomizeOutlookUIButton:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(101, 101, 101, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.kintoneCustomizeOutlookUIButton:focus:not(:active):after {
+    animation: kintone-button-material .3s ease-in;
+}
+
+.kintoneCustomizeOutlookUIBody {
+  display: block;
+  width: 100%;
+}
+
+#kintoneCustomizeBtnSignInOutlook{
+  background-color: #3598db;
+  color: white;
+}
+
+#kintoneCustomizeBtnSendSchedule {
+  margin-top: 10px;
+  border: 1px solid #e3e7e8;
+  padding: 10px 20px;
+  color: #3498db;
+  font-weight: bold;
+  background: white;
+  margin-left: 1em;
+  /*position: relative;*/
+  overflow: hidden;
+}
