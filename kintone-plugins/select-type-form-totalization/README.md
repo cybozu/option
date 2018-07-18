@@ -19,7 +19,13 @@ Calculations:
 * Support Japanese and English (In case the user's language is Chinese, this plugin will be displayed in English).
 
 ## How to get plugin 
-* Please use [@kintone/plugin-packer](https://www.npmjs.com/package/@kintone/plugin-packer). It requires [Node.js](https://nodejs.org/en/).
+* Step 1: Clone the repository
+```
+$ cd your-working-directory
+$ git clone https://github.com/cybozu/option.git
+```
+* Step 2: Build the plug-in package
+Please use [@kintone/plugin-packer](https://www.npmjs.com/package/@kintone/plugin-packer). It requires [Node.js](https://nodejs.org/en/).
 
 ## Install Plug-in
 * Using a select-type-form-totalization.plugin.zip which was created above to install the plug-in.
