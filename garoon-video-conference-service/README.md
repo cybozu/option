@@ -26,7 +26,7 @@ google: {
 
 ```
 ## Restriction
-> Because this customization is based on google hangouts,so it may not work normally in some browser(such as Firefox) that don't support google hangouts.
+> Because this customization is based on google hangouts,so it may not work normally in some browser(such as Firefox) that does't support google hangouts.
 >
 > Google hangouts is supported by browsers as below.
 >
