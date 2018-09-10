@@ -14,13 +14,13 @@
   - [grn_kit.css](https://github.com/garoon/css-for-customize/blob/master/css/grn_kit.css)
 
 **Setting**:
-> Open `garoon-connect-video-conference-service.js`, config the google calendar app client id and google accounts(mail addresses).
+> Open `garoon-connect-video-conference-service.js`, config the google calendar app client id and the google accounts(mail addresses) to register google calendar.
 > If everyone is allowed to register google calendar,set nothing in accounts.
 
 ```javascript
 google: {
-      clientId: '',    // the Google app client ID
-      accounts: []     // the Google accounts to register google calendar
+      clientId: '',    // the google calendar app client id
+      accounts: []     // the google accounts(mail addresses) to register google calendar
 }
 
 ```
