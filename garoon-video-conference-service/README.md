@@ -4,7 +4,7 @@
 
 ## App Customization
 
-> On the _JavaScript and CSS Customization_ of [Application settings > Scheduler > JavaScript and CSS customization], add the files following the setting below
+> On the _[Application settings > Scheduler > JavaScript and CSS customization]_, add the files following the setting below
 
 - **Upload JavaScript for PC**
   - [google-api.min.js](https://apis.google.com/js/api.js)
