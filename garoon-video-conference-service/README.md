@@ -26,9 +26,9 @@ google: {
 
 ```
 ## Restriction
-> Because of using google hangouts, so if google hangouts is not supported by a browser(such as Firefox), hangouts doesn't work in it.
+> Because this customization is based on google hangouts, if google hangouts is not supported by a browser(such as Firefox), hangouts doesn't work in it.
 >
-> Google hangouts is supported by browsers as blow.
+> Google hangouts is supported by browsers as below.
 >
 >   - Google Chrome
 >   - Microsoft Internet Explorer (IE11)
