@@ -15,6 +15,7 @@
 
 **Setting**:
 > Open `garoon-connect-video-conference-service.js`, config the google calendar app client id and the google accounts(mail addresses) to register google calendar.
+>
 > If everyone is allowed to register google calendar,set nothing in accounts.
 
 ```javascript
