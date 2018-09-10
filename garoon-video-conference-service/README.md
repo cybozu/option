@@ -30,7 +30,7 @@ google: {
 > -Google Chrome
 > -Microsoft Internet Explorer (IE11)
 > -Safari
-> If using Internet Explorer or Safari, please install hangoutplugin(https://www.google.com/tools/dlpage/hangoutplugin) at first.
+> If using Internet Explorer or Safari, please install [hangoutplugin](https://www.google.com/tools/dlpage/hangoutplugin) at first.
 
 ## Reference
 
