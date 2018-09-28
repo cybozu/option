@@ -72,7 +72,7 @@ window.kintoneO365Connect = {
 ```
 
 6. Upload JavaScript for PC
-* [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+* [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases/tag/v0.1.2)
 * [jquery.min.js](https://js.cybozu.com/jquery/3.2.1/jquery.min.js)
 * [sweetalert2.min.js](https://js.cybozu.com/sweetalert2/v6.10.1/sweetalert2.min.js)
 * [kintoneUtility.min.js](https://kintone.github.io/kintoneUtility/kintoneUtility.min.js)
