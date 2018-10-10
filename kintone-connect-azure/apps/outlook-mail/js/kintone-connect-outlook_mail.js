@@ -58,7 +58,8 @@ jQuery.noConflict();
                     error: {
                         sendFailure: 'Failed to send email.',
                         signInFailure: 'Failed to sign in Outlook.',
-                        getAccessTokenFailure: 'Failed to get access token.'
+                        getAccessTokenFailure: 'Failed to get access token.',
+                        accessOutlookFailure: 'Failed to access to outlook.'
                     }
                 }
             },
@@ -84,7 +85,8 @@ jQuery.noConflict();
                     error: {
                         sendFailure: 'メールの送信に失敗しました',
                         signInFailure: 'サインインできませんでした',
-                        getAccessTokenFailure: 'アクセストークンが取得できませんでした'
+                        getAccessTokenFailure: 'アクセストークンが取得できませんでした',
+                        accessOutlookFailure: 'Outlookにアクセス出来ませんでした'
                     }
                 }
             }
@@ -354,6 +356,17 @@ jQuery.noConflict();
             // OutlookのINBOXからメール取得
             return kintone.proxy(MAIL_GET_URL, 'GET', header, {}).then(function(res) {
                 var data = JSON.parse(res[0]).value;
+                
+                if (data === undefined) {
+                    swal({
+                        title: 'ERROR!',
+                        type: 'error',
+                        text: kintoneMailService.setting.i18n.message.error.accessOutlookFailure,
+                        allowOutsideClick: false
+                    });
+                    KC.ui.loading.hide();
+                    return;
+                }
 
                 // 受信箱にメールが存在しない場合
                 if (data.length === 0) {
@@ -364,6 +377,7 @@ jQuery.noConflict();
                         allowOutsideClick: false
                     });
                     KC.ui.loading.hide();
+                    return;
                 }
 
                 // 取得したメールをkintoneへ登録

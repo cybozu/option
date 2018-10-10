@@ -34,6 +34,7 @@ jQuery.noConflict();
     var ERROR_MESSAGE_SEND_MAIL_FAILURE = 'メールの送信に失敗しました。';
     var EEROR_SIGIN_FAILURE = 'サインインできませんでした。';
     var EEROR_GET_ACCESS_TOKEN = 'アクセストークンが取得できませんでした。';
+    var ERROR_FAILED_ACCESS = 'Outlookにアクセス出来ませんでした'
 
     var kintoneMailService = {
 
@@ -279,11 +280,18 @@ jQuery.noConflict();
             // OutlookのINBOXからメール取得
             return kintone.proxy(url, 'GET', header, {}).then(function(res) {
                 var data = JSON.parse(res[0]).value;
+                
+                if (data === undefined) {
+                    swal('ERROR!', ERROR_FAILED_ACCESS, 'error');
+                    KC.ui.loading.hide();
+                    return
+                }
 
                 // 受信箱にメールが存在しない場合
                 if (data.length === 0) {
                     swal('Warning!', INFO_MESSAGE_NO_MAIL_INBOX, 'warning');
                     KC.ui.loading.hide();
+                    return
                 }
 
                 // 取得したメールをkintoneへ登録
@@ -549,6 +557,8 @@ jQuery.noConflict();
                 if (isConfirm) {
                     self.sendMail(kinRec);
                 }
+            }, function(dismiss) {
+                KC.ui.loading.hide();
             });
         },
 
